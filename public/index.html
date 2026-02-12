@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=720, height=720, user-scalable=no">
+  <title>Renogy Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Device Selector -->
+    <div class="device-selector" id="deviceSelector">
+      <button class="nav-btn prev" id="prevDevice">🏠</button>
+      <span class="device-name" id="deviceName">Loading...</span>
+      <button class="nav-btn next" id="nextDevice">🏚️</button>
+    </div>
+
+    <!-- Main Dashboard -->
+    <div class="dashboard" id="dashboard">
+
+      <!-- Combined Battery Gauge (Always visible, around the screen) -->
+      <div class="combined-battery">
+        <div class="gauge-container">
+          <svg class="gauge" viewBox="0 0 200 200">
+            <circle class="gauge-bg" cx="100" cy="100" r="90" />
+            <circle class="gauge-fill" id="combinedGauge" cx="100" cy="100" r="90" />
+            <text class="gauge-value" id="combinedValue" x="100" y="110">--%</text>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Solar Section (Always visible) -->
+      <div class="solar-section">
+        <!-- <div class="solar-icon">☀</div> -->
+        <div class="solar-power" id="solarPower">-- W</div>
+        <div class="solar-stats">
+          <div class="solar-stat">
+            <div class="stat-icon">⚡</div>
+            <div class="stat-value" id="solarAmps">-- A</div>
+          </div>
+          <div class="solar-stat">
+            <div class="stat-icon">🔋</div>
+            <div class="stat-value" id="solarVolts">-- V</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Batteries Section (House only) -->
+      <div class="batteries-section" id="batteriesSection">
+        <!-- Connection line -->
+        <div class="connection-line"></div>
+
+        <!-- Individual Batteries -->
+        <div class="batteries-row">
+          <div class="battery-item">
+            <div class="battery-icon">🔋</div>
+            <div class="battery-percent" id="battery1Percent">--%</div>
+            <div class="battery-label">Battery 1</div>
+            <div class="battery-volts" id="battery1Volts">-- V</div>
+          </div>
+
+          <div class="battery-item">
+            <div class="battery-icon">🔋</div>
+            <div class="battery-percent" id="battery2Percent">--%</div>
+            <div class="battery-label">Battery 2</div>
+            <div class="battery-volts" id="battery2Volts">-- V</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Loading -->
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      <p>Loading...</p>
+    </div>
+
+    <!-- Error -->
+    <div class="error" id="error" style="display: none;">
+      <p id="errorMessage">Error</p>
+      <button onclick="location.reload()">Retry</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

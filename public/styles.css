@@ -1,0 +1,318 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 720px;
+  height: 720px;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 720px;
+  height: 720px;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #1a1a2e 0%, #0a0a0f 100%);
+}
+
+/* Device Selector */
+.device-selector {
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 20;
+}
+
+.device-name {
+  font-size: 18px;
+  font-weight: 600;
+  min-width: 120px;
+  text-align: center;
+}
+
+.nav-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  transition: all 0.3s;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+/* Dashboard */
+.dashboard {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Solar Section */
+.solar-section {
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  margin-bottom: 40px;
+}
+
+.solar-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.solar-power {
+  font-size: 36px;
+  font-weight: 700;
+  color: #ffd700;
+  margin-bottom: 15px;
+}
+
+.solar-stats {
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.solar-stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stat-icon {
+  font-size: 20px;
+}
+
+.stat-value {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* Batteries Section */
+.batteries-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  margin-top: 10px;
+}
+
+.batteries-section.hidden {
+  display: none;
+}
+
+.connection-line {
+  width: 2px;
+  height: 30px;
+  background: rgba(255, 255, 255, 0.3);
+  margin-bottom: 20px;
+}
+
+.batteries-row {
+  display: flex;
+  gap: 80px;
+  margin-bottom: 20px;
+}
+
+.battery-item {
+  text-align: center;
+}
+
+.battery-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.battery-percent {
+  font-size: 24px;
+  font-weight: 700;
+  color: #00ffc8;
+  margin-bottom: 4px;
+}
+
+.battery-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 4px;
+}
+
+.battery-volts {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Combined Battery Gauge */
+.combined-battery {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.combined-battery.hidden {
+  display: none;
+}
+
+.gauge-container {
+  width: 720px;
+  height: 720px;
+}
+
+.gauge {
+  filter: drop-shadow(0 0 10px rgba(0, 255, 200, 0.3));
+}
+
+.gauge-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 20;
+}
+
+.gauge-fill {
+  fill: none;
+  stroke: #00ffc8;
+  stroke-width: 20;
+  stroke-linecap: round;
+  transform: rotate(-90deg);
+  transform-origin: center;
+  transition: stroke-dashoffset 0.5s ease, stroke 0.5s ease;
+}
+
+.gauge-value {
+  display: none;
+}
+
+.combined-label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Status */
+.status-indicator {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  z-index: 20;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #666;
+}
+
+.status-indicator.online .status-dot {
+  background: #00ff88;
+  box-shadow: 0 0 10px #00ff88;
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Loading */
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  border-radius: 50%;
+}
+
+.loading.hidden {
+  display: none;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #00ffc8;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading p {
+  margin-top: 20px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Error */
+.error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 101;
+  background: rgba(255, 0, 0, 0.1);
+  border: 2px solid rgba(255, 0, 0, 0.5);
+  border-radius: 15px;
+  padding: 30px;
+}
+
+.error p {
+  margin-bottom: 15px;
+  color: #ff6b6b;
+}
+
+.error button {
+  background: #ff6b6b;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}

@@ -4,15 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=720, height=720, user-scalable=no">
   <title>Renogy Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
     <!-- Device Selector -->
     <div class="device-selector" id="deviceSelector">
-      <button class="nav-btn prev" id="prevDevice">🏠</button>
+      <button class="nav-btn prev" id="prevDevice"><i class="fas fa-house"></i></button>
       <span class="device-name" id="deviceName">Loading...</span>
-      <button class="nav-btn next" id="nextDevice">🏚️</button>
+      <button class="nav-btn next" id="nextDevice"><i class="fas fa-warehouse"></i></button>
     </div>
 
     <!-- Main Dashboard -->
@@ -35,11 +36,11 @@
         <div class="solar-power" id="solarPower">-- W</div>
         <div class="solar-stats">
           <div class="solar-stat">
-            <div class="stat-icon">⚡</div>
+            <div class="stat-icon"><i class="fas fa-bolt"></i></div>
             <div class="stat-value" id="solarAmps">-- A</div>
           </div>
           <div class="solar-stat">
-            <div class="stat-icon">🔋</div>
+            <div class="stat-icon"><i class="fas fa-plug"></i></div>
             <div class="stat-value" id="solarVolts">-- V</div>
           </div>
         </div>
@@ -53,14 +54,14 @@
         <!-- Individual Batteries -->
         <div class="batteries-row">
           <div class="battery-item">
-            <div class="battery-icon">🔋</div>
+            <div class="battery-icon"><i class="fas fa-car-battery"></i></div>
             <div class="battery-percent" id="battery1Percent">--%</div>
             <div class="battery-label">Battery 1</div>
             <div class="battery-volts" id="battery1Volts">-- V</div>
           </div>
 
           <div class="battery-item">
-            <div class="battery-icon">🔋</div>
+            <div class="battery-icon"><i class="fas fa-car-battery"></i></div>
             <div class="battery-percent" id="battery2Percent">--%</div>
             <div class="battery-label">Battery 2</div>
             <div class="battery-volts" id="battery2Volts">-- V</div>

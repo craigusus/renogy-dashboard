@@ -107,7 +107,7 @@ sudo systemctl start renogy-dashboard
 
 Install Chromium:
 ```bash
-sudo apt-get install chromium-browser
+sudo apt-get install chromium
 ```
 
 Create autostart script:
@@ -121,7 +121,7 @@ Add:
 [Desktop Entry]
 Type=Application
 Name=Renogy Dashboard
-Exec=chromium-browser --kiosk --noerrdialogs --disable-infobars --no-first-run --disable-session-crashed-bubble http://localhost:3000
+Exec=chromium --kiosk --noerrdialogs --disable-infobars --no-first-run --disable-session-crashed-bubble http://localhost:3000
 ```
 
 ## API Endpoints

@@ -5,11 +5,11 @@ A web-based dashboard for monitoring Renogy devices, optimized for a 720x720 rou
 ## Features
 
 - 🔋 Real-time battery level, voltage, and current monitoring
-- ☀️ Solar generation tracking
-- ⚠️ Alarm and alert notifications
-- 📱 Multiple device support with navigation
-- 🎨 Circular gauges optimized for round displays
-- 🔄 Auto-refresh every 10 seconds
+- ☀️ Solar generation tracking (power, amps, volts)
+- 📱 Multiple device support with navigation (House/Shed toggle)
+- 🎨 Circular battery gauge around the screen edge
+- 🌈 Color-coded battery levels (green/yellow/red thresholds)
+- 🔄 Auto-refresh every 60 seconds with smart caching
 
 ## Setup
 
@@ -147,24 +147,20 @@ The dashboard is optimized for:
 
 Edit `public/app.js` and change:
 ```javascript
-const REFRESH_INTERVAL = 10000; // milliseconds
+const REFRESH_INTERVAL = 60000; // milliseconds (60 seconds)
 ```
 
-### Gauge Colors
+### Battery Level Color Thresholds
 
-Edit `public/styles.css` and modify the gauge stroke colors:
-```css
-#batteryGauge { stroke: #00ffc8; }
-#voltageGauge { stroke: #ffd700; }
-#currentGauge { stroke: #ff6b6b; }
-```
-
-### Voltage/Current Ranges
-
-Edit `public/app.js` and modify max values:
+The battery gauge automatically changes color based on charge level. To customize the thresholds, edit `public/app.js` in the `updateGauge()` function:
 ```javascript
-const maxVoltage = 15; // Typical max for 12V system
-const maxCurrent = 100; // Max display current
+if (percentage >= 50) {
+  color = '#4caf50'; // Green - 50%+
+} else if (percentage >= 25) {
+  color = '#ffc107'; // Yellow - 25-49%
+} else {
+  color = '#f44336'; // Red - 0-24%
+}
 ```
 
 ## Troubleshooting

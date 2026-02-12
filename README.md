@@ -80,7 +80,7 @@ Create a systemd service:
 sudo nano /etc/systemd/system/renogy-dashboard.service
 ```
 
-Add:
+Add (replace `YOUR_USERNAME` with your actual username from `whoami`):
 ```ini
 [Unit]
 Description=Renogy Dashboard
@@ -88,8 +88,8 @@ After=network.target
 
 [Service]
 Type=simple
-User=pi
-WorkingDirectory=/home/pi/renogy-dashboard
+User=YOUR_USERNAME
+WorkingDirectory=/home/YOUR_USERNAME/renogy-dashboard
 ExecStart=/usr/bin/node server.js
 Restart=always
 

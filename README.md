@@ -11,6 +11,8 @@ A web-based dashboard for monitoring Renogy devices, optimized for a 720x720 rou
 - 🌈 Color-coded battery levels (green/yellow/red thresholds)
 - 🔄 Auto-refresh every 60 seconds with smart caching
 
+<img width="1080" height="1080" alt="Untitled" src="https://github.com/user-attachments/assets/591754ce-99e7-40fa-9f0d-85ec62f8c3f9" />
+
 ## Setup
 
 ### 1. Install Dependencies

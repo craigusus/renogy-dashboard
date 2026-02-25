@@ -25,7 +25,9 @@ const elements = {
   battery2Volts: document.getElementById('battery2Volts'),
   combinedGauge: document.getElementById('combinedGauge'),
   combinedValue: document.getElementById('combinedValue'),
-  combinedBattery: document.querySelector('.combined-battery')
+  combinedBattery: document.querySelector('.combined-battery'),
+  totalBatteryDisplay: document.getElementById('totalBatteryDisplay'),
+  totalBatteryPercent: document.getElementById('totalBatteryPercent')
 };
 
 // Initialize gauge
@@ -126,6 +128,7 @@ function updateDisplay() {
   } else {
     elements.batteriesSection.classList.add('hidden');
     elements.combinedBattery.classList.add('hidden');
+    elements.totalBatteryDisplay.classList.add('hidden');
   }
 }
 
@@ -165,6 +168,8 @@ function updateBatteries(batteries) {
   const combinedLevel = count > 0 ? totalLevel / count : 0;
   updateGauge(combinedLevel);
   elements.combinedValue.textContent = `${formatNumber(combinedLevel, 0)}%`;
+  elements.totalBatteryPercent.textContent = `${formatNumber(combinedLevel, 0)}%`;
+  elements.totalBatteryDisplay.classList.remove('hidden');
 }
 
 // Fetch dashboard data

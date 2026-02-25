@@ -89,10 +89,11 @@ body {
 }
 
 .solar-power {
-  font-size: 36px;
+  font-size: 54px;
   font-weight: 700;
   color: #ffd700;
   margin-bottom: 15px;
+  margin-top: 80px;
 }
 
 .solar-stats {
@@ -113,7 +114,7 @@ body {
 }
 
 .stat-value {
-  font-size: 18px;
+  font-size: 26px;
   font-weight: 600;
   color: #fff;
 }
@@ -155,7 +156,7 @@ body {
 }
 
 .battery-percent {
-  font-size: 24px;
+  font-size: 36px;
   font-weight: 700;
   color: #00ffc8;
   margin-bottom: 4px;
@@ -168,7 +169,7 @@ body {
 }
 
 .battery-volts {
-  font-size: 14px;
+  font-size: 20px;
   color: rgba(255, 255, 255, 0.8);
 }
 
@@ -198,13 +199,13 @@ body {
 .gauge-bg {
   fill: none;
   stroke: rgba(255, 255, 255, 0.1);
-  stroke-width: 20;
+  stroke-width: 10;
 }
 
 .gauge-fill {
   fill: none;
   stroke: #00ffc8;
-  stroke-width: 20;
+  stroke-width: 10;
   stroke-linecap: round;
   transform: rotate(-90deg);
   transform-origin: center;
@@ -218,6 +219,23 @@ body {
 .combined-label {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.6);
+}
+
+/* Total Battery Display */
+.total-battery-display {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  z-index: 20;
+  font-size: 42px;
+  font-weight: 700;
+  color: #00ffc8;
+}
+
+.total-battery-display.hidden {
+  display: none;
 }
 
 /* Status */
